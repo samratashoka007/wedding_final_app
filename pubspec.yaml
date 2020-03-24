@@ -29,6 +29,7 @@ dependencies:
   flutter_datetime_picker: 1.2.5
   flutter_localizations:
     sdk: flutter
+  uuid: ^2.0.0
   flutter_webview_plugin: ^0.3.0+2
   webview_flutter: ^0.3.14+1
   crashlytics: ^0.0.2
@@ -83,6 +84,12 @@ flutter:
           weight: 400
         - asset: fonts/poppins_semibold.ttf
           weight: 500
+
+    - family: NotoSerif
+      fonts:
+        - asset: fonts/NotoSerif-BoldItalic.ttf
+          weight: 900
+#          //style: italic
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
