@@ -1,7 +1,10 @@
 
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:wedding_final_app/app.dart';
 import 'package:wedding_final_app/widget/AppBarWidget.dart';
 
@@ -16,6 +19,7 @@ class RsvpSection extends StatefulWidget{
 class RSVPData extends State<RsvpSection> {
   int _n = 0;
   int _n1 = 0;
+  String radioItem = '';
   @override
   Widget build(BuildContext context) {
 
@@ -85,84 +89,195 @@ class RSVPData extends State<RsvpSection> {
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: new Container(
-                  child: new Center(
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        new Text('No. of Guests(Including YourSelf) : ',style: TextStyle(
-                            fontSize:15.0,
-                            color: Colors.black
-                        ),
-                        ),
 
-                        new FloatingActionButton(
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+
+                      children: <Widget>[
+                        Expanded(child:  new Text('No. of Guests \n(Including YourSelf) : ',style: TextStyle(
+                           fontSize:15.0,
+                           color: Colors.black
+                              ),
+                             ),
+                         ),
+
+                        SizedBox(height: 5.0,),
+                        new FlatButton(
+                          onPressed: add,
+                          child: Image.asset('images/assets/addbtn.png',
+                          height: 15.0,
+                          width: 15.0,),
+                        ),
+                      /*  new FloatingActionButton(
                           onPressed: add,
                           heroTag: "btn1",
-
-                          child: new Icon(Icons.add, color: Colors.black,size: 20.0,),
+                          child: Image.asset('images/assets/addbtn.png'),
+                          //child: new Icon(Icons.add, color: Colors.black),
                           backgroundColor: Colors.white,),
-
+*/
                         new Text('$_n',
                             style: new TextStyle(fontSize: 20.0)),
-
-                        new FloatingActionButton(
+                        new FlatButton(
+                          onPressed: minus,
+                          child: Image.asset('images/assets/minusbtn.png',
+                            height: 15.0,
+                            width: 15.0,),
+                        ),
+                      /*  new FloatingActionButton(
                           heroTag: "btn2",
                           onPressed: minus,
                           child: new Icon(
                               const IconData(0xe15b, fontFamily: 'MaterialIcons'),
-                              color: Colors.black,size: 20.0,),
-                          backgroundColor: Colors.white,),
+                              color: Colors.black),
+                          backgroundColor: Colors.white,),*/
                       ],
                     ),
                   ),
-                ),
+
               ),
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: new Container(
                   child: new Center(
                     child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        new Text('No. of Kids(If Applicable) : ',style: TextStyle(
+                        Expanded(child:  new Text('No. of Kids \n(If Applicable) : ',style: TextStyle(
                             fontSize:15.0,
                             color: Colors.black
+                        ),
                         ),
                         ),
                        /* Padding(
                           padding: EdgeInsets.all(10.0),
                           child:
                         ),*/
+                        new FlatButton(
+                          onPressed: add1,
 
-                        new Padding(padding: EdgeInsets.only(left: 5.0),
-                           child:  new FloatingActionButton(
-                              heroTag: "btn3",
-                              onPressed: add1,
-                              child: new Icon(Icons.add, color: Colors.black,size: 20.0,),
-                              backgroundColor: Colors.white,),
+                          child: Image.asset('images/assets/addbtn.png',
+                            height: 15.0,
+
+                            width: 15.0,),
                         ),
+                      /*  new Padding(padding: EdgeInsets.only(left: 5.0),
+                           child:  new FloatingActionButton(
+
+                              onPressed: add1,
+                              child: new Icon(Icons.add, color: Colors.black,size: 10.0,),
+                              backgroundColor: Colors.white,),
+                        ),*/
 
 
                         new Text(
                             '$_n1',
                             style: new TextStyle(fontSize: 20.0)),
 
-                        new FloatingActionButton(
+                      /*  new FloatingActionButton(
                           heroTag: "btn4",
                           onPressed: minus1,
                           child: new Icon(
                             const IconData(0xe15b, fontFamily: 'MaterialIcons'),
-                            color: Colors.black,size: 20.0,),
+                            color: Colors.black,size: 10.0,),
                           backgroundColor: Colors.white,
+                        ),*/
+                        new FlatButton(
+                          onPressed: minus1,
+                          child: Image.asset('images/assets/minusbtn.png',
+                            height: 15.0,
+                            width: 15.0,),
                         ),
-
                       ],
                     ),
                   ),
                 ),
               ),
               Padding(
+              /*  padding: EdgeInsets.all(10.0),
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      new Text('I am Attending'),
+                      new Column(
+                       // mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RadioListTile(
+                            groupValue: radioItem,
+                            title: Text('Radio Button Item 1'),
+                            value: 'Item 1',
+                            onChanged: (val) {
+                              setState(() {
+                                radioItem = val;
+                              });
+                            },
+                          ),
+
+                          RadioListTile(
+                            groupValue: radioItem,
+                            title: Text('Radio Button Item 2'),
+                            value: 'Item 2',
+                            onChanged: (val) {
+                              setState(() {
+                                radioItem = val;
+                              });
+                            },
+                          ),
+
+                          Text('$radioItem', style: TextStyle(fontSize: 23),)
+                        ],
+                      ),
+                    ],
+                  ),
+                ),*/
+
                 padding: EdgeInsets.all(10.0),
+
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+
+                    Text('I am Attending',style:TextStyle(
+                      fontFamily: 'NotoSerif',
+                      fontSize: 20.0,
+                    ),),
+                    RadioListTile(
+                      groupValue: radioItem,
+                      title: Text('In Marriage'),
+                      value: 'Item 1',
+                      onChanged: (val) {
+                        setState(() {
+                          radioItem = val;
+                        });
+                      },
+                  ),
+
+                  RadioListTile(
+                    groupValue: radioItem,
+                    title: Text('In Reception'),
+                    value: 'Item 2',
+                    onChanged: (val) {
+                      setState(() {
+                        radioItem = val;
+                      });
+                    },
+                  ),
+                    RadioListTile(
+                      groupValue: radioItem,
+                      title: Text('Both'),
+                      value: 'Item 3',
+                      onChanged: (val) {
+                        setState(() {
+                          radioItem = val;
+                        });
+                      },
+                    ),
+                  Text('$radioItem', style: TextStyle(fontSize: 23),)
+                ],
+              ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(40.0),
                 child: Container(
                   margin: EdgeInsets.all(20.0),
                   child: RaisedButton(
@@ -170,11 +285,12 @@ class RSVPData extends State<RsvpSection> {
                     shape: new RoundedRectangleBorder(
                         borderRadius:
                         new BorderRadius.circular(30.0)),
-                    color: Colors.pink,
-                    child: Text('Submit',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),),
+                          color: Colors.pink,
+                            child: Text('Submit',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
                     elevation: 5.0,
                     padding: EdgeInsets.only(
                         left: 80.0,
@@ -201,6 +317,7 @@ class RSVPData extends State<RsvpSection> {
 
 
   }
+
 
   void minus() {
     setState(() {
