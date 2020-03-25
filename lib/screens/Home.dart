@@ -174,7 +174,8 @@ class _HomeState extends State<Home> {
 //        Utils.saveBooleanValue('isLogged', false);
         Utils.saveIntValue('locale', rtlValue);
         Route route = MaterialPageRoute(builder: (context) => MyApp());
-        Navigator.pushAndRemoveUntil(context, route,ModalRoute.withName('/'));
+        Navigator.pushAndRemoveUntil(context, route,ModalRoute.
+        withName('/'));
       },
     );
 

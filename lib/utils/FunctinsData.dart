@@ -118,6 +118,9 @@ static var guestIcon = [
       case 'AboutUs':
         Navigator.push(context, ScaleRoute(page: AboutUs()));
         break;
+      case 'InvitationCard':
+        Navigator.push(context, ScaleRoute(page: GuestInviattaionLayout()));
+        break;
 
     }
   }
